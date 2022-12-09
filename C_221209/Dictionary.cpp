@@ -21,14 +21,17 @@ void Dictionary::Save()
 	fclose(file);
 }
 
-void Dictionary::AddWord(const char* str)
+Dictionary::InputResult Dictionary::AddWord(const char* str)
 {
-	if (numWords == MAX_WORD_NUM) {
-		printf("´Ü¾îÀå ²Ë Âü\n");
-		return;
-	}
+	if (numWords == MAX_WORD_NUM)
+		return InputResult::FULL;
+
+	if (IsInDictionary(str))
+		return InputResult::ALREADY;
 
 	sprintf_s(words[numWords++], "%s", str);
+	Dictionary::GetInstance()->Save();
+	return InputResult::SUCCEED;
 }
 void Dictionary::Load()
 {
@@ -65,6 +68,20 @@ const char* Dictionary::GetWord(const int& index)
 		return nullptr;
 
 	return words[index];
+}
+
+bool Dictionary::IsFull()
+{
+	return numWords >= MAX_WORD_NUM;
+}
+
+bool Dictionary::IsInDictionary(const char* str)
+{
+	for (int i = 0; i < numWords; i++) {
+		if (strcmp(str, words[i]))
+			return true;
+	}
+	return false;
 }
 
 Dictionary* Dictionary::GetInstance()

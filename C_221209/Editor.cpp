@@ -22,17 +22,29 @@ void Editor::Select()
 
 void Editor::Add()
 {
-    if (Dictionary::GetInstance()->GetNumWords() == Dictionary::MAX_WORD_NUM)
-        message += "단어장 꽉 찼음!\n";
-    
-
-    char addStr[Dictionary::MAX_LENGTH] = "";
-    printf("추가할 단어를 입력하시오 -> ");
-    scanf_s("%s", addStr, Dictionary::MAX_LENGTH);
-    Dictionary::GetInstance()->AddWord(addStr);
-
-    Dictionary::GetInstance()->Save();
-    printf("\n단어 추가 : %s\n", addStr);
+    if (Dictionary::GetInstance()->IsFull()) {
+        printf("더 이상 저장할 수 없습니다.\n");
+    }
+    else {
+        char addStr[Dictionary::MAX_LENGTH] = "";
+        printf("추가할 단어를 입력하시오 -> ");
+        scanf_s("%s", addStr, Dictionary::MAX_LENGTH);
+        Dictionary::InputResult result = Dictionary::GetInstance()->AddWord(addStr);
+        switch (result)
+        {
+        case Dictionary::InputResult::FULL:
+            printf("더 이상 저장할 수 없습니다.\n");
+            break;
+        case Dictionary::InputResult::ALREADY:
+            printf("이미 있는 단어입니다.\n");
+            break;
+        case Dictionary::InputResult::SUCCEED:
+            printf("단어 추가 : %s\n", addStr);
+            break;
+        default:
+            break;
+        }
+    }
     Sleep(1000);
 }
 

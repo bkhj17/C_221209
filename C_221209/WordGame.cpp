@@ -79,6 +79,8 @@ void WordGame::CheckInputWord()
     if (nowWord == 0) {
         PlusScore();
         SetTargetWords();
+
+        startTime = lastTime = clock();
     }
 
     buffer = "";
