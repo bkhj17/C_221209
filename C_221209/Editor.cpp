@@ -40,7 +40,9 @@ void Editor::PrintList(std::string& renderTarget)
 {
     renderTarget += "[ 단어 출력 ]\n";
     Dictionary::GetInstance()->PrintWords(renderTarget);
-
+    getchar();
+    fflush(stdin);
+    getchar();
 }
 
 void Editor::Init()

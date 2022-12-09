@@ -26,4 +26,3 @@ public:
 	virtual bool IsClose() override;
 	virtual void BeforeClose() override;
 };
-
