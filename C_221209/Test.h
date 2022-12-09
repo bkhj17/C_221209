@@ -7,11 +7,11 @@ class Test : public Base
 	static const int LIMIT = 1000000000;
 	static const int NUM_OF_NUMBER = 10;
 
-	string s;
+	std::string s;
 	int n;
 	int cntNum[NUM_OF_NUMBER] = {};
 
-	void GetCount(std::string s);
+	void GetCount(int n);
 public:
 
 

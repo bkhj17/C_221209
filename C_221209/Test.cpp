@@ -1,8 +1,9 @@
 #include "Test.h"
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-void Test::GetCount(std::string s) {
+void Test::GetCount(int n) {
 	//1의 자리
 	//10의 자리 이상의 숫자가 각각 (1의 자리 수)만큼 반복
 	//0 ~ (1의 자리 수)까지 1번씩 
@@ -24,19 +25,17 @@ void Test::GetCount(std::string s) {
 	//x/10의 자리 0~9까지 (x의 자리 수)*10만큼 반복
 	//x/(10의 i제곱)의 자리 0~9까지 (x의 자리수*x/(10의 i제곱)만큼 반복
 
-	//자리수
-	int x = 1;
-
-	//x의 자리 수
-	nx = 
+	//숫자 위치
+	string ns = to_string(n);
+	reverse(ns.begin(), ns.end());
+	cout << ns;
 
 
 }
 
-
 void Test::Run()
 {
-	cin >> s;
+	cin >> n;
 
 
 
@@ -58,9 +57,5 @@ void Test::Run()
 	//100
 	//20	+ 백의 자리 수 20번
 	//3		+
-
-
-
-	for (int i = 0; i < NUM_OF_NUMBER; i++)
-		cout << cntNum[i] << " ";
+	GetCount(n);
 }

@@ -1,8 +1,13 @@
 //main.cpp
 #include "BingoGame.h"
+#include "SlidePuzzleGame.h"
+#include "String.h"
+#include "FileIo.h"
+#include "Homework.h"
+#include "Test.h"
 
 int main() {
-	BingoGame r;
+	Homework r;
 	r.Run();
 	return 0;
 }
