@@ -17,7 +17,7 @@ private:
 	void Select();
 	void Add();
 	void PrintTitle(std::string& renderTarget);
-	void PrintList(std::string& renderTarget);
+	void PrintList();
 public:
 	// MenuCycle을(를) 통해 상속됨
 	virtual void Init() override;

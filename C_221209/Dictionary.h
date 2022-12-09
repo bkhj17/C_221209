@@ -20,10 +20,12 @@ public:
 	void AddWord(const char* str);
 	void Save();
 	void Load();
+
 	void PrintWords(std::string& renderTarget);
+	const char* GetWord(const int& index);
 	int GetNumWords() const { return numWords; }
 public:
-	static Dictionary* GetInstance() { return instance; }
+	static Dictionary* GetInstance();
 	static void Delete() { if (instance) delete(instance); }
 };
 

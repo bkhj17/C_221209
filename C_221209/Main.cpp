@@ -1,4 +1,4 @@
-//main.cpp
+//Main.cpp
 #include "BingoGame.h"
 #include "SlidePuzzleGame.h"
 #include "String.h"

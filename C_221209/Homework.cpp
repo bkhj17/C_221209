@@ -56,11 +56,13 @@ void Homework::Update()
 		menuState = SelectMenu();
 		break;
 	case Homework::MenuState::CYCLE:
-		curCycle->Update();
-		if (curCycle->IsClose()) {
-			curCycle = NULL;
+		if (!curCycle) {
 			menuState = MenuState::MENU;
+			return;
 		}
+		curCycle->Update();
+		if (curCycle->IsClose()) 
+			curCycle = NULL;
 		break;
 	case Homework::MenuState::EXIT:
 		break;
